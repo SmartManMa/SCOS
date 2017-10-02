@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="code.source.es.sosc">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/scos_logo"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/scos_logo_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity android:name="es.sources.code.activitys.SCOSEntry">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="es.sources.code.activitys.MainScreen">
+            <intent-filter>
+                <action android:name="scos.intent.action.SCOSMAIN"/>
+
+                <category android:name="scos.intent.category.SCOSLAUNCHER"/>
+                <!--隐式Intent必须添加下面的category -->
+                <category android:name = "android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

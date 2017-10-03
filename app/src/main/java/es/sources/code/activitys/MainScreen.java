@@ -12,7 +12,7 @@ import android.widget.TabHost;
 import android.widget.TextView;
 
 import code.source.es.sosc.R;
-import es.sources.code.fragments.LoginOrRegisterFragment;
+import es.sources.code.fragments.UserCenterFragment;
 import es.sources.code.fragments.OrderFoodFragment;
 import es.sources.code.fragments.OrderListFragment;
 import es.sources.code.fragments.SystemHelpFragment;
@@ -34,7 +34,7 @@ public class MainScreen extends AppCompatActivity {
         setContentView(R.layout.main_screen);
         //数据传递：SCOSEntry--MainScreen--OrderFoodFragment
         Intent intent = getIntent();
-        String mess = intent.getStringExtra("test");
+        String mess = intent.getStringExtra("flag");
         mBundle = new Bundle();
         mBundle.putString("main",mess);
 
@@ -82,7 +82,7 @@ public class MainScreen extends AppCompatActivity {
         Class[] fragmentArr = {
                 OrderFoodFragment.class,
                 OrderListFragment.class,
-                LoginOrRegisterFragment.class,
+                UserCenterFragment.class,
                 SystemHelpFragment.class
         };
         //spc
@@ -98,17 +98,15 @@ public class MainScreen extends AppCompatActivity {
             ImageView icon = (ImageView) view.findViewById(R.id.icon_tab);
             TextView textIndicator = (TextView) view.findViewById(R.id.txt_indicator);
 
-            icon.setBackgroundResource(iconResArr[i]);
+            icon.setImageResource(iconResArr[i]);
             textIndicator.setText(spcNameArr[i]);
 
             tabSpec.setIndicator(view);
-            if(i == 0) {
-                mTabHost.addTab(tabSpec, fragmentArr[i],mBundle);
+            if(i <= 1) {
+                mTabHost.addTab(tabSpec, fragmentArr[i], mBundle);
             } else {
                 mTabHost.addTab(tabSpec, fragmentArr[i],null);
             }
-
         }
-
     }
 }

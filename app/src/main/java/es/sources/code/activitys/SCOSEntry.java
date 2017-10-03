@@ -69,16 +69,13 @@ public class SCOSEntry extends AppCompatActivity {
         mTest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MAIN_SCREEN_ACTION);
-                intent.putExtra("test","from SOSCEntry");
+//                Intent intent = new Intent(MAIN_SCREEN_ACTION);
+//                intent.putExtra("test","from SOSCEntry");
+//                startActivity(intent);
+//                Toast.makeText(SCOSEntry.this,"跳转",Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(SCOSEntry.this,LoginOrRegister.class);
                 startActivity(intent);
-                Toast.makeText(SCOSEntry.this,"跳转",Toast.LENGTH_LONG).show();
             }
         });
-    }
-
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        return super.onTouchEvent(event);
     }
 }

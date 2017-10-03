@@ -2,6 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="code.source.es.sosc">
 
+    <!-- 自定义权限 -->
+    <permission
+        android:name="scos.permission.ACCESSSCOS"
+        android:protectionLevel="dangerous"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/scos_logo"
@@ -9,7 +14,6 @@
         android:roundIcon="@mipmap/scos_logo_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity android:name="es.sources.code.activitys.SCOSEntry">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -17,16 +21,18 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-
         <activity
-            android:name="es.sources.code.activitys.MainScreen">
+            android:name="es.sources.code.activitys.MainScreen"
+            android:permission="scos.permission.ACCESSSCOS">
             <intent-filter>
                 <action android:name="scos.intent.action.SCOSMAIN"/>
 
                 <category android:name="scos.intent.category.SCOSLAUNCHER"/>
-                <!--隐式Intent必须添加下面的category -->
-                <category android:name = "android.intent.category.DEFAULT" />
+                <!-- 隐式Intent必须添加下面的category -->
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
+        </activity>
+        <activity android:name="es.sources.code.activitys.LoginOrRegister">
         </activity>
     </application>
 
